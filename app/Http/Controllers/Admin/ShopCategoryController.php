@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Shop;
 use App\Models\ShopCategory;
@@ -52,9 +52,25 @@ class ShopCategoryController extends Controller
     {
         $shop=ShopCategory::find($id);
         if ($request->isMethod("post")){
+            $data=$request->post();
             $this->validate($request,[
-               "name"=>"required"
+               "name"=>"required",
+
+                "logo"=>"image",
             ]);
+//            dd($data);
+            if ($request->file("logo")==null){
+                $data['logo']==null;
+            }else{
+                $logo=$request->file("logo")->store("images","image");
+//            dd($logo);
+                $data['logo']=$logo;
+            }
+
+//       dd($data);
+            if ($shop->update($data)){
+                return redirect()->route("admin.shop_category.index")->with("success","编辑分类成功");
+            }
 
         }else{
 

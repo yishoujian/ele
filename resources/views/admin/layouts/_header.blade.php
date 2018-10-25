@@ -16,25 +16,27 @@
             <ul class="nav navbar-nav">
 
                 {{--<li><a href="">文章分类</a></li>--}}
-                <li class="active"><a href="{{route("activity.index")}}">套餐列表<span class="sr-only">(current)</span></a></li>
-                {{--<li><a href="">商品分类</a></li>--}}
-                {{--<li class="dropdown">--}}
-                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>--}}
-                    {{--<ul class="dropdown-menu">--}}
-                        {{--<li><a href="#">Action</a></li>--}}
-                        {{--<li><a href="#">Another action</a></li>--}}
-                        {{--<li><a href="#">Something else here</a></li>--}}
-                        {{--<li role="separator" class="divider"></li>--}}
-                        {{--<li><a href="#">Separated link</a></li>--}}
-                        {{--<li role="separator" class="divider"></li>--}}
-                        {{--<li><a href="#">One more separated link</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
+                <li class="active"><a href="{{route("admin.shop_category.index")}}">店铺分类列表<span class="sr-only">(current)</span></a></li>
+
+                <li class="active"><a href="{{route("admin.shop.index")}}">店铺列表<span class="sr-only">(current)</span></a></li>
+                <li><a href="{{route("admin.user.index")}}">商户列表</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav ">
-            <li><a href="{{route("consume.index")}}">会员消费记录</a></li>
-            <li><a href="{{route("history.index")}}">会员充值记录</a></li>
+            <li><a href="">会员消费记录</a></li>
+            <li><a href="">会员充值记录</a></li>
             </ul>
 
             <form class="navbar-form navbar-left">
@@ -47,19 +49,22 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{route("user.index")}}">用户管理列表</a></li>
-                    <li><a href="{{route("admin.index")}}">管理员列表</a></li>
+
+
+                    <li><a href="">管理员列表</a></li>
+                    <li><a href="{{route("admin.admin.add")}}">管理员添加</a></li>
                     {{--<li class="active"><a href="{{route("user.recharge")}}">消费/充值<span class="sr-only">(current)</span></a></li>--}}
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            欢迎:{{\Illuminate\Support\Facades\Auth::guard("admin")->user()->username}}
+                            欢迎:{{ Illuminate\Support\Facades\Auth::guard("admin")->user()->name}}
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
+                            <li><a href="{{route("admin.admin.edit")}}">修改密码</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something else here</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{route("admin.logout")}}">退出登录</a></li>
+                            <li><a href="{{route("admin.admin.logout")}}">退出登录</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -68,8 +73,8 @@
             @guest("admin")
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{route("admin.reg")}}">注册</a></li>
-                    <li><a href="{{route("admin.login")}}">登录</a></li>
+
+                    <li><a href="{{route("admin.admin.login")}}">管理员登录</a></li>
                 </ul>
             @endguest
 

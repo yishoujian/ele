@@ -215,7 +215,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="/shop/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">欢迎:{{\Illuminate\Support\Facades\Auth::guard("shop")->user()}}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->

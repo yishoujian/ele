@@ -44,9 +44,15 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    {{--<button type="submit" class="btn btn-default"></button>--}}
                     <button type="submit" class="btn btn-info pull-right">注册</button>
+                    <a href="{{route("shop.user.login")}}" class="btn btn-warning">已有账号?登录</a>
+                    {{--<button type="submit" class="btn btn-default"></button>--}}
+
                 </div>
+
+                    {{--<button type="submit" class="btn btn-default"></button>--}}
+
+
                 <!-- /.box-footer -->
             </form>
         </div>

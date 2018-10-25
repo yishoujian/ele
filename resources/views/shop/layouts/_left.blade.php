@@ -15,7 +15,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li><a href="/shop/add"><i class="fa fa-book"></i> <span>申请店铺</span></a></li>
+            <li><a href="{{route("shop.shop.add")}}"><i class="fa fa-book"></i> <span>申请店铺</span></a></li>
             {{--<li><a href="/shop/add"><i class="fa fa-book"></i> <span>申请店铺</span></a></li>--}}
             <li class="treeview">
                 <a href="#">

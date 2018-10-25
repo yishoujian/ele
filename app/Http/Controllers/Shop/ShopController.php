@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\shop;
+namespace App\Http\Controllers\Shop;
 
 use App\Models\Shop;
 use App\Models\ShopCategory;
@@ -12,6 +12,8 @@ class ShopController extends BaseController
 {
     public function add(Request $request)
     {
+        $id=Auth::user()->id;
+        dd($id);
         if ($request->isMethod("post")){
             //判断当前用户是否已有店铺
             if (Auth::user()->shop_id){
@@ -22,7 +24,8 @@ class ShopController extends BaseController
 //           dd($data['user_id']);
            $data['status']=0;
 //           dd($data);
-            $data['logo']=$request->file("logo")->store("images","shop");
+            //第一个参数的存本地的地址 第二个参数才是驱动名称
+            $data['logo']=$request->file("logo")->store("images","image");
             if (Shop::create($data)){
                 return redirect()->route("shop.index.index")->with("success","申请成功请耐心等待");
             }else{

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\shop;
+namespace App\Http\Controllers\Shop;
 
 use App\Models\User;
 use Faker\Provider\Base;
@@ -40,6 +40,7 @@ class UserController extends BaseController
                 "name"=>"required",
                 "password"=>"required",
             ]);
+
 
             if (Auth::attempt($data,$request->post("remember"))){
                 return redirect()->route("shop.index.index")->with("success","登录成功");

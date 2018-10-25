@@ -12,4 +12,11 @@ class User extends Authenticatable
     protected $fillable=["name","email","password","status","remember_token"];
 
 
+    public function shop()
+    {
+        return $this->hasOne(Shop::class,"user_id");
+
+    }
+
+
 }
