@@ -13,6 +13,14 @@ class Shop extends Model
 {
     protected $fillable=["shop_category_id","shop_name","logo","shop_rating","brand","on_time","fengniao","bao","piao","zhun","start_send","send_cost","notice","discount","status","user_id"];
 
+
+//    public function menuCate()
+//    {
+//        return $this->hasMany(MenuCategory::class,"shop_id");
+//
+//    }
+
+
     public function category()
     {
         return $this->belongsTo(ShopCategory::class,"shop_category_id");

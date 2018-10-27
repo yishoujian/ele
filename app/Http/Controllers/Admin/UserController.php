@@ -7,6 +7,7 @@ use App\Models\ShopCategory;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends BaseController
@@ -88,4 +89,23 @@ class UserController extends BaseController
         }
 
     }
+
+   //删除用户 同时删除
+    public function del(Request $request,$id)
+    {
+        DB::transaction( function () use ($id){
+            User::find($id)->delete();
+            Shop::where("user_id",$id)->delete();
+
+
+        }
+
+
+        );
+
+
+
+
+
+        }
 }

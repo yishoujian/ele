@@ -23,8 +23,28 @@ Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
 
     Route::any('user/reg',"UserController@reg")->name("shop.user.reg");
     Route::any('user/login',"UserController@login")->name("shop.user.login");
+    Route::any('user/logout',"UserController@logout")->name("shop.user.logout");
+    Route::any('user/change',"UserController@change")->name("shop.user.change");
 
     Route::any('shop/add',"ShopController@add")->name("shop.shop.add");
+
+    //商户菜品分类路由
+    Route::any('menu_category/index',"MenuCategoryController@index")->name("shop.menu_category.index");
+
+    Route::any('menu_category/add',"MenuCategoryController@add")->name("shop.menu_category.add");
+    Route::any('menu_category/edit/{id}',"MenuCategoryController@edit")->name("shop.menu_category.edit");
+    Route::any('menu_category/del{id}',"MenuCategoryController@del")->name("shop.menu_category.del");
+
+
+
+    //商户菜品路由
+    Route::any('menu/index',"MenuController@index")->name("shop.menu.index");
+
+    Route::any('menu/add',"MenuController@add")->name("shop.menu.add");
+    Route::any('menu/edit/{id}',"MenuController@edit")->name("shop.menu.edit");
+    Route::any('menu/del{id}',"MenuController@del")->name("shop.menu.del");
+
+
 });
 
 

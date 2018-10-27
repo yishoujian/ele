@@ -15,8 +15,18 @@
             <tr>
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
-                {{--<td>{{$user->shop->shop_name}}</td>--}}
+
                 <td>
+                    @if($user->shop)
+                    {{$user->shop->shop_name}}
+                    @else
+                        你还没有店铺
+                    @endif
+                </td>
+
+
+
+                  <td>
                     @if($user->status==1)
                 在线
                     @elseif($user->status==-1)

@@ -48,6 +48,16 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'oss' => [
+            'driver'        => 'oss',
+            'access_id'     => 'LTAICkzbQn0fTiHc',
+            'access_key'    => 'xRoz5ISd0e8GMo2YnStxneXRbAF5P5',
+            'bucket'        => 'php0620',
+            'endpoint'      => 'oss-cn-shenzhen.aliyuncs.com', // OSS 外网节点或自定义外部域名
+            'debug'         => false
+        ],
+
+
 
         'image' => [
             'driver' => 'local',
