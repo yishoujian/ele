@@ -16,6 +16,8 @@
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    @yield("css")
 </head>
 <body>
 
@@ -31,5 +33,6 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 
 @include("admin.layouts._footer")
+@yield("js")
 </body>
 </html>

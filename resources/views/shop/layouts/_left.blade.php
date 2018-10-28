@@ -16,7 +16,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
             <li><a href="{{route("shop.shop.add")}}"><i class="fa fa-book"></i> <span>申请店铺</span></a></li>
-            {{--<li><a href="/shop/add"><i class="fa fa-book"></i> <span>申请店铺</span></a></li>--}}
+            <li><a href="{{route("shop.article.index")}}"><i class="fa fa-book"></i> <span>活动查看</span></a></li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>菜品管理</span>

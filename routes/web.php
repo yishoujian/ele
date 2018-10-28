@@ -41,8 +41,16 @@ Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
     Route::any('menu/index',"MenuController@index")->name("shop.menu.index");
 
     Route::any('menu/add',"MenuController@add")->name("shop.menu.add");
+    Route::any('menu/uploade',"MenuController@uploade")->name("shop.menu.uploade");
     Route::any('menu/edit/{id}',"MenuController@edit")->name("shop.menu.edit");
     Route::any('menu/del{id}',"MenuController@del")->name("shop.menu.del");
+
+    //商户活动
+    Route::any('article/index',"ArticleController@index")->name("shop.article.index");
+
+
+
+
 
 
 });
@@ -50,6 +58,11 @@ Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
 
 //管理员
 Route::domain('admin.ele.com')->namespace('Admin')->group(function () {
+
+    //活动添加
+    Route::any("article/index","ArticleController@index")->name("admin.article.index");
+    Route::any("article/add","ArticleController@add")->name("admin.article.add");
+    Route::any("article/del/{id}","ArticleController@del")->name("admin.article.del");
 
 
     //管理店铺分类

@@ -35,7 +35,7 @@
             </ul>
 
             <ul class="nav navbar-nav ">
-            <li><a href="">会员消费记录</a></li>
+            <li><a href="{{route("admin.article.index")}}">活动列表</a></li>
             <li><a href="">会员充值记录</a></li>
             </ul>
 
