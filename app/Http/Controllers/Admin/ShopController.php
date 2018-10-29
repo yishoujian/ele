@@ -21,9 +21,11 @@ class ShopController extends BaseController
     {
         $scs=ShopCategory::all();
         $shop=Shop::find($id);
-        dd($shop);
+//        dd($shop);
         if ($request->isMethod("post")){
             $data=$request->post();
+//            dd($data);
+            $data['shop_img']=$request->file("shop_img")->store("shop");
             $data['status']=1;
             if ($shop->update($data)){
                 return redirect()->route("admin.shop.index")->with("success","修改成功");

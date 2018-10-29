@@ -25,8 +25,8 @@ class ShopController extends BaseController
             $data['user_id']=Auth::id();
            $data['status']=0;
 //           dd($data);
-            if ($request->file("logo")){
-                $data['logo']=$request->file("logo")->store("images","image");
+            if ($request->file("goods_img")){
+                $data['goods_img']=$request->file("goods_img")->store("images","image");
             }
             //第一个参数的存本地的地址 第二个参数才是驱动名称
 

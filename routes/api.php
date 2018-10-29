@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//商户列表
+Route::any("shop/list","Api\ShopController@list");
+//商家详情
+Route::any("shop/index","Api\ShopController@index");
+//登录接口
+Route::any("user/login","Api\UserController@login");

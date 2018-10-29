@@ -26,7 +26,7 @@
                 </td>
 
                 <td>
-                    <img src="/{{$shop->logo}}" alt="" width="100">
+                    <img src="{{env("ALIYUN_OSS_URL").$shop->shop_img}}" alt="" width="100">
                 </td>
                 <td>
                     @if($shop->status==0)

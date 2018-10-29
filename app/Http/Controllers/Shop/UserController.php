@@ -54,6 +54,7 @@ class UserController extends BaseController
             if (Auth::attempt($data, $request->post("remember"))) {
                 return redirect()->route("shop.index.index")->with("success", "登录成功");
 
+
             } else {
                 return redirect()->back()->with("danger", "账号或者密码错误");
             }
