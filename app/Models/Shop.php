@@ -33,6 +33,12 @@ class Shop extends Model
 
     }
 
+    //修改器
+    public function getShopImgAttribute($value)
+    {
+        return env("ALIYUN_OSS_URL").$value;
+    }
+
 
 
 

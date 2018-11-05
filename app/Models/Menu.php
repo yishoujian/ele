@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-    protected $fillable=["goods_name","rating","shop_id","category_id","goods_price","description","month_sales","rating_count","tips","satisfy_count","satisfy_rate","goods_img","status","user_id"];
+    protected $fillable=["goods_name","rating","shop_id","category_id","goods_price","description","month_sales","rating_count","tips","satisfy_count","satisfy_rate","goods_img","status","user_id","stock"];
 
     //菜品属于菜品分类
     public function cate()
@@ -21,4 +21,11 @@ class Menu extends Model
         return $this->belongsTo(Shop::class,"shop_id");
 
     }
+
+        //修改器
+    public function getGoodsImgAttribute($value)
+    {
+        return env("ALIYUN_OSS_URL").$value;
+    }
+
 }

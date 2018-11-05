@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-
 //商户
 Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
 
@@ -33,9 +32,7 @@ Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
 
     Route::any('menu_category/add',"MenuCategoryController@add")->name("shop.menu_category.add");
     Route::any('menu_category/edit/{id}',"MenuCategoryController@edit")->name("shop.menu_category.edit");
-    Route::any('menu_category/del{id}',"MenuCategoryController@del")->name("shop.menu_category.del");
-
-
+    Route::any('menu_category/del/{id}',"MenuCategoryController@del")->name("shop.menu_category.del");
 
     //商户菜品路由
     Route::any('menu/index',"MenuController@index")->name("shop.menu.index");
@@ -43,15 +40,37 @@ Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
     Route::any('menu/add',"MenuController@add")->name("shop.menu.add");
     Route::any('menu/uploade',"MenuController@uploade")->name("shop.menu.uploade");
     Route::any('menu/edit/{id}',"MenuController@edit")->name("shop.menu.edit");
-    Route::any('menu/del{id}',"MenuController@del")->name("shop.menu.del");
+    Route::any('menu/del/{id}',"MenuController@del")->name("shop.menu.del");
 
     //商户活动
     Route::any('article/index',"ArticleController@index")->name("shop.article.index");
+ //商户订单
+    Route::any('order/index',"OrderController@index")->name("shop.order.index");
 
+//商户订单 按天查看
+    Route::any('order/tian',"OrderController@tian")->name("shop.order.tian");
 
+    //商户订单 按月查看
+    Route::any('order/yue',"OrderController@yue")->name("shop.order.yue");
 
+    //商户订单 按天查看菜品
+    Route::any('order_menu/tian',"OrderController@menuTian")->name("shop.order_menu.tian");
+    Route::any('order_menu/yue',"OrderController@menuYue")->name("shop.order_menu.tian");
 
+    //点击取消订单
+    Route::any('order/quxiao/{id}',"OrderController@quxiao")->name("shop.order.quxiao");
+    //点击发货
+    Route::any('order/fahuo/{id}',"OrderController@fahuo")->name("shop.order.fahuo");
+    //点击确认
+    Route::any('order/queren/{id}',"OrderController@queren")->name("shop.order.queren");
+    //点击完成
+    Route::any('order/wancheng/{id}',"OrderController@wancheng")->name("shop.order.wancheng");
 
+    //点击删除
+    Route::any('order/del/{id}',"OrderController@del")->name("shop.order.del");
+
+    //查看订单详情
+    Route::any('order/chakan/{id}',"OrderController@chakan")->name("shop.order.chakan");
 
 });
 
@@ -65,6 +84,21 @@ Route::domain('admin.ele.com')->namespace('Admin')->group(function () {
     Route::any("article/del/{id}","ArticleController@del")->name("admin.article.del");
 
 
+    //权限添加
+    Route::any("per/index","PerController@index")->name("admin.per.index");
+    Route::any("per/add","PerController@add")->name("admin.per.add");
+    Route::any("per/edit/{id}","PerController@edit")->name("admin.per.edit");
+    Route::any("per/del/{id}","PerController@del")->name("admin.per.del");
+
+    Route::any("roles/add","RolesController@add")->name("admin.roles.add");
+    Route::any("roles/index","RolesController@index")->name("admin.roles.index");
+
+
+
+
+
+
+
     //管理店铺分类
     Route::any("shop_category/add","ShopCategoryController@add")->name("admin.shop_category.add");
     Route::get("shop_category/index","ShopCategoryController@index")->name("admin.shop_category.index");
@@ -75,14 +109,21 @@ Route::domain('admin.ele.com')->namespace('Admin')->group(function () {
     //管理员
     //大后台首页
     Route::get("admin/index","IndexController@index")->name("admin.admin.index");
+    //管理员列表
+    Route::get("admin/list","AdminController@list")->name("admin.admin.list");
     //管理员登录
     Route::any("admin/login","AdminController@login")->name("admin.admin.login");
     //管理员添加
     Route::any("admin/add","AdminController@add")->name("admin.admin.add");
+    //管理员编辑
+    Route::any("admin/save/{id}","AdminController@save")->name("admin.admin.save");
+
     //退出登录
     Route::any("admin/logout","AdminController@logout")->name("admin.admin.logout");
     //修改密码
     Route::any("admin/eidt","AdminController@edit")->name("admin.admin.edit");
+    //删除管理员
+    Route::any("admin/del/{id}","AdminController@del")->name("admin.admin.del");
 
     //后台店铺管理
     //管理店铺
@@ -101,6 +142,16 @@ Route::domain('admin.ele.com')->namespace('Admin')->group(function () {
     Route::any("user/del/{id}","UserController@del")->name("admin.user.del");
     Route::any("user/chongzhi/{id}","UserController@chongzhi")->name("admin.user.chongzhi");
 
+
+//商户订单 按天查看
+    Route::any('order/tian',"OrderController@tian")->name("admin.order.tian");
+
+    //商户订单 按月查看
+    Route::any('order/yue',"OrderController@yue")->name("admin.order.yue");
+
+    //商户订单 按天查看菜品
+    Route::any('order_menu/tian',"OrderController@menuTian")->name("admin.order_menu.tian");
+    Route::any('order_menu/yue',"OrderController@menuYue")->name("admin.order_menu.tian");
 
 
 

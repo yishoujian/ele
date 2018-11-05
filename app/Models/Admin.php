@@ -4,8 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable
 {
-    protected $fillable=["name","email","password","remember_token"];
+    use HasRoles;
+    protected $fillable=["name","email","password","remember_token","roles_id"];
 }

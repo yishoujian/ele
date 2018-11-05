@@ -17,6 +17,7 @@
             <li class="header">MAIN NAVIGATION</li>
             <li><a href="{{route("shop.shop.add")}}"><i class="fa fa-book"></i> <span>申请店铺</span></a></li>
             <li><a href="{{route("shop.article.index")}}"><i class="fa fa-book"></i> <span>活动查看</span></a></li>
+            <li><a href="{{route("shop.order.index")}}"><i class="fa fa-book"></i> <span>查看订单</span></a></li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i> <span>菜品管理</span>
@@ -27,6 +28,22 @@
                 <ul class="treeview-menu">
                     <li><a href="{{route("shop.menu_category.index")}}"><i class="fa fa-circle-o"></i> 菜品分类管理</a></li>
                     <li><a href="{{route("shop.menu.index")}}"><i class="fa fa-circle-o"></i> 菜品管理</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>订单管理</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{route("shop.order.index")}}"><i class="fa fa-circle-o"></i> 订单查看</a></li>
+                    <li><a href="{{route("shop.order.tian")}}"><i class="fa fa-circle-o"></i> 按天查看</a></li>
+                    <li><a href="{{route("shop.order.yue")}}"><i class="fa fa-circle-o"></i> 按月查看</a></li>
+                    <li><a href="{{route("shop.order_menu.tian")}}"><i class="fa fa-circle-o"></i> 菜品按天查看</a></li>
+                    <li><a href="{{route("shop.order_menu.tian")}}"><i class="fa fa-circle-o"></i> 菜品按月查看</a></li>
                 </ul>
             </li>
 

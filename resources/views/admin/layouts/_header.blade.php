@@ -21,10 +21,10 @@
                 <li class="active"><a href="{{route("admin.shop.index")}}">店铺列表<span class="sr-only">(current)</span></a></li>
                 <li><a href="{{route("admin.user.index")}}">商户列表</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">订单详情 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
+                        <li><a href="{{route("admin.order.tian")}}">按天查看</a></li>
+                        <li><a href="{{route("admin.order.yue")}}">按月查看</a></li>
                         <li><a href="#">Something else here</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Separated link</a></li>
@@ -32,6 +32,22 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">权限管理 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route("admin.per.add")}}">添加权限</a></li>
+                        <li><a href="{{route("admin.per.index")}}">权限列表</a></li>
+                        <li><a href="{{route("admin.roles.add")}}">给管理员添加权限</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+
+
             </ul>
 
             <ul class="nav navbar-nav ">
@@ -51,7 +67,7 @@
                 <ul class="nav navbar-nav navbar-right">
 
 
-                    <li><a href="">管理员列表</a></li>
+                    <li><a href="{{route("admin.admin.list")}}">管理员列表</a></li>
                     <li><a href="{{route("admin.admin.add")}}">管理员添加</a></li>
                     {{--<li class="active"><a href="{{route("user.recharge")}}">消费/充值<span class="sr-only">(current)</span></a></li>--}}
 

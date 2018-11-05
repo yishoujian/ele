@@ -33,5 +33,23 @@ Route::any("member/sms","Api\MemberController@sms");
 Route::any("member/forgetPassword","Api\MemberController@forgetPassword");
 //修改密码
 Route::any("member/changePassword","Api\MemberController@changePassword");
+//用户详情
+Route::any("member/detail","Api\MemberController@detail");
+//添加购物车
+Route::any("cat/add","Api\CatController@add");
+Route::any("cat/index","Api\CatController@index");
+//添加收货地址
+Route::any("address/add","Api\AddressController@add");
+Route::any("address/index","Api\AddressController@index");
+Route::any("address/edit","Api\AddressController@edit");
+Route::any("address/save","Api\AddressController@save");
+//添加订单
+Route::any("order/add","Api\OrderController@add");
+//订单列表
+Route::any("order/list","Api\OrderController@list");
+//订单详情
+Route::any("order/index","Api\OrderController@index");
+//订单支付
+Route::any("order/pay","Api\OrderController@pay");
 
 

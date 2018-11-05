@@ -13,6 +13,13 @@
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="请输入密码" name="password">
         </div>
 
+        <div class="form-group">
+            <label for="exampleInputPassword1">添加角色</label>
+            @foreach($roles as $role)
+                <input type="checkbox" name="role[]" value="{{$role->id}}">{{$role->name}}
+            @endforeach
+        </div>
+
         <button type="submit" class="btn btn-warning">添加管理员</button>
     </form>
 @endsection

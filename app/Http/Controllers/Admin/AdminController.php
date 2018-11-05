@@ -6,9 +6,12 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
-class AdminController extends Controller
+class AdminController extends BaseController
 {
 
     //管理员登录
@@ -42,8 +45,16 @@ class AdminController extends Controller
     }
 
 
+    //管理员列表
+    public function list()
+    {
 
- //添加管理员
+        $admins=Admin::all();
+        return view("admin.admin.list",compact("admins"));
+
+    }
+
+    //添加管理员
     public function add(Request $request)
     {
         if ($request->isMethod("post")){
@@ -51,16 +62,21 @@ class AdminController extends Controller
                "name"=>"required",
             ]);
             $data=$request->post();
+//            dd($data);
+            $role=$request->post("role");
+
             $password=$request->post("password");
             $data['password']=Hash::make($password);
-
-
-            if (Admin::create($data)){
-                return redirect()->route("admin.admin.login");
+            $re=Admin::create($data);
+            if ($re){
+                //给管理员添加角色
+                $re->syncRoles($role);
+                return redirect()->route("admin.admin.index");
             }
 
         }else{
-            return view("admin.admin.add");
+            $roles=Role::all();
+            return view("admin.admin.add",compact("roles"));
         }
 
     }
@@ -91,4 +107,57 @@ class AdminController extends Controller
 
 
     }
+
+
+    public function del(Request $request,$id)
+    {
+
+       Admin::find($id)->delete();
+
+        return redirect()->route("admin.admin.list")->with("success","删除成功");
+
+    }
+
+    //编辑
+
+    public function save(Request $request,$id)
+    {
+        if ($id==4){
+            return exit("我是超级管理员 不能删除");
+        }
+        $admin=Admin::find($id);
+        if ($request->isMethod("post")){
+            $this->validate($request,[
+               "name"=>"required",
+            ]);
+            $data=$request->post();
+//            dd($data)
+            $data1['name']=$data['name'];
+            $data1['password']=$data['password'];
+
+            $admin->update($data1);
+//            dd($request->post('role'));
+            $admin->syncRoles($request->post('role'));
+
+            return redirect()->route("admin.admin.list")->with("success","编辑成功");
+
+            }else{
+            $admin=Admin::find($id);
+            $roles = $admin->getRoleNames()->toArray();
+//            dd($roles);
+            $jiaoses=Role::all();
+//            dd($jiaose);
+//            dd($roles);
+            return view("admin.admin.save",compact("roles","admin","jiaoses"));
+
+
+
+
+        }
+
+
+        
+    }
+    
+    
 }

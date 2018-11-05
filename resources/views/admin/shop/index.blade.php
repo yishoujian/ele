@@ -33,8 +33,7 @@
                         <a href="{{route("admin.shop.shenhe",$shop->id)}}" class="btn btn-success
 
 " >审核</a>
-
-                   @endif
+                    @endif
 
                     <a href="{{route("admin.shop.edit",$shop->id)}}" class="btn btn-success">编辑</a>
                     <a href="{{route("admin.shop.del",$shop->id)}}" class="btn btn-danger">删除</a>
