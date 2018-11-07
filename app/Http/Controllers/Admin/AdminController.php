@@ -111,6 +111,9 @@ class AdminController extends BaseController
 
     public function del(Request $request,$id)
     {
+        if ($id == 1) {
+            return back()->with("danger", "1不能删除");
+        }
 
        Admin::find($id)->delete();
 
@@ -119,10 +122,9 @@ class AdminController extends BaseController
     }
 
     //编辑
-
     public function save(Request $request,$id)
     {
-        if ($id==4){
+        if ($id==1){
             return exit("我是超级管理员 不能删除");
         }
         $admin=Admin::find($id);

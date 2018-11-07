@@ -15,17 +15,28 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get("test",function (){
+
+    dd(env("MAIL_FROM_NAME"));
+});
+
+
+
 //商户
 Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
+
 
     Route::get("index/index","IndexController@index")->name("shop.index.index");
 
     Route::any('user/reg',"UserController@reg")->name("shop.user.reg");
+
     Route::any('user/login',"UserController@login")->name("shop.user.login");
     Route::any('user/logout',"UserController@logout")->name("shop.user.logout");
     Route::any('user/change',"UserController@change")->name("shop.user.change");
 
     Route::any('shop/add',"ShopController@add")->name("shop.shop.add");
+    //发送邮箱
+    Route::any('email/send',"EmailController@send")->name("shop.eamil.send");
 
     //商户菜品分类路由
     Route::any('menu_category/index',"MenuCategoryController@index")->name("shop.menu_category.index");
@@ -92,6 +103,11 @@ Route::domain('admin.ele.com')->namespace('Admin')->group(function () {
 
     Route::any("roles/add","RolesController@add")->name("admin.roles.add");
     Route::any("roles/index","RolesController@index")->name("admin.roles.index");
+
+
+    //菜单管理 导航条
+    Route::any("nav/index","NavController@index")->name("admin.nav.index");
+    Route::any("nav/add","NavController@add")->name("admin.nav.add");
 
 
 
