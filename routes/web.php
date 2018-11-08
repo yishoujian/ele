@@ -83,6 +83,12 @@ Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
     //查看订单详情
     Route::any('order/chakan/{id}',"OrderController@chakan")->name("shop.order.chakan");
 
+    //抽奖首页
+    Route::any('event/index',"EventController@index")->name("shop.event.index");
+//报名
+    Route::any('event/add/{id}',"EventController@add")->name("shop.event.add");
+
+
 });
 
 
@@ -168,6 +174,23 @@ Route::domain('admin.ele.com')->namespace('Admin')->group(function () {
     //商户订单 按天查看菜品
     Route::any('order_menu/tian',"OrderController@menuTian")->name("admin.order_menu.tian");
     Route::any('order_menu/yue',"OrderController@menuYue")->name("admin.order_menu.tian");
+
+//抽奖活动
+    Route::get("event/index","EventController@index")->name("admin.event.index");
+    Route::any("event/add","EventController@add")->name("admin.event.add");
+    Route::any("event/edit/{id}","EventController@edit")->name("admin.event.edit");
+    Route::any("event/del/{id}","EventController@del")->name("admin.event.del");
+
+    //活动奖品
+    Route::get("event_prize/index","EventPrizeController@index")->name("admin.event_prize.index");
+    Route::any("event_prize/add","EventPrizeController@add")->name("admin.event_prize.add");
+    Route::any("event_prize/edit/{id}","EventPrizeController@edit")->name("admin.event_prize.edit");
+    Route::any("event_prize/del/{id}","EventPrizeController@del")->name("admin.event_prize.del");
+//开奖
+    Route::any("event/open/{id}","EventController@open")->name("admin.event.open");
+
+
+
 
 
 
