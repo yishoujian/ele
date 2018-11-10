@@ -8,7 +8,7 @@ use App\Models\ShopCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ShopController extends Controller
+class ShopController extends BaseController
 {
     public function list()
     {

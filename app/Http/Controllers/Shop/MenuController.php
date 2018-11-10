@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class MenuController extends Controller
+class MenuController extends BaseController
 {
     public function index(Request $request)
     {

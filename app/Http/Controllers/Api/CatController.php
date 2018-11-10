@@ -7,7 +7,7 @@ use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CatController extends Controller
+class CatController extends BaseController
 {
     public function add(Request $request)
     {

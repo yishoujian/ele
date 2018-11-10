@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-class AddressController extends Controller
+class AddressController extends BaseController
 {
     public function add(Request $request)
     {

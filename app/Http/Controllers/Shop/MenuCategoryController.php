@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class MenuCategoryController extends Controller
+class MenuCategoryController extends BaseController
 {
     public function index()
     {

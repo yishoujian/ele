@@ -51,5 +51,11 @@ Route::any("order/list","Api\OrderController@list");
 Route::any("order/index","Api\OrderController@index");
 //订单支付
 Route::any("order/pay","Api\OrderController@pay");
+//微信支付
+Route::any("order/wxPay","Api\OrderController@wxPay");
+//订单状态
+Route::any("order/status","Api\OrderController@status");
+//微信支付成功
+Route::any("order/ok","Api\OrderController@ok");
 
 

@@ -54,13 +54,13 @@ class ShopController extends BaseController
             $content ="你的店铺".$shop->shop_name."审核成功";
             $to = '784259775@qq.com';
             $subject = '店铺开通通知';
-            Mail::send(
-                'email.send',
-                compact("content"),
-                function ($message) use($to, $subject) {
-                    $message->to($to)->subject($subject);
-                }
-            );
+//            Mail::send(
+//                'email.send',
+//                compact("content"),
+//                function ($message) use($to, $subject) {
+//                    $message->to($to)->subject($subject);
+//                }
+//            );
             return redirect()->route("admin.shop.index")->with("success","审核通过");
         }
 

@@ -7,7 +7,7 @@ use App\Models\EventPrize;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class EventPrizeController extends Controller
+class EventPrizeController extends BaseController
 {
     public function index()
     {

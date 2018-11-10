@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 
-class EventController extends Controller
+class EventController extends BaseController
 {
     //查看
     public function index()

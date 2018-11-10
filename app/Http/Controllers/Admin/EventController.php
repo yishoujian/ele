@@ -87,11 +87,9 @@ class EventController extends BaseController
         $event->delete();
         return redirect()->route("admin.event.index")->with("success","删除成功");
 
+        }
 
-    }
-
-
-    //开奖
+        //开奖
     public function open(Request $request,$id)
     {
         //取出redis中的所有成员 加入到event_user表中
